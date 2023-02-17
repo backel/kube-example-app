@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: example-app
+  namespace: example-app
+  labels:
+    app: example-app
+spec:
+  selector:
+    app: example-app
+  ports:
+  - name: web
+    port: 8080
+#---
+#kind: Service
+#apiVersion: v1
+#metadata:
+#  name: example-app-np
+#  namespace: example-app
+#  labels:
+#    app: example-app
+#spec:
+#  type: NodePort
+#  selector:
+#    app: example-app
+#  ports:
+#  - name: web
+#    port: 8080
+#    nodePort: 30030
+
