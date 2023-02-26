@@ -5,6 +5,10 @@ metadata:
   namespace: example-app
   labels:
     app: example-app
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: '8080'
 spec:
   selector:
     app: example-app
@@ -27,4 +31,19 @@ spec:
 #  - name: web
 #    port: 8080
 #    nodePort: 30030
-
+#---
+#kind: Service
+#apiVersion: v1
+#metadata:
+#  name: example-app-lb
+#  namespace: example-app
+#  labels:
+#    app: example-app
+#spec:
+#  type: LoadBalancer
+#  selector:
+#    app: example-app
+#  ports:
+#  - name: web
+#    port: 80
+#    targetPort: 8080
